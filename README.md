@@ -39,11 +39,17 @@ To use your computer as a wireless audio output:
 
 ---
 
-## 🛠️ Developer & Portfolio
-This project showcases high-performance systems programming and low-level audio architecture.
-- For deep technical details, see [WHITEPAPER.md](./WHITEPAPER.md).
-- For a high-level project overview, see [SHOWCASE.md](./SHOWCASE.md).
-- For build instructions, see [BUILD_INSTRUCTIONS.md](./distribution/BUILD_INSTRUCTIONS.md).
+## 🛠️ Generación de APK (Android)
+El proyecto utiliza **Capacitor** para empaquetar la aplicación web en un binario nativo.
+1. Instala dependencias: `npm install`.
+2. Compila la web: `npm run build`.
+3. Sincroniza con Android: `npx cap sync android`.
+4. Genera el APK: `cd android && ./gradlew assembleRelease`.
+
+---
+
+## 🤖 GitHub Actions CI/CD
+El repositorio está configurado con **GitHub Actions**. Cada vez que hagas un `push` a la rama `main`, GitHub compilará el APK automáticamente y lo dejará disponible como un **Artifact** en la pestaña **Actions**.
 
 ---
 *Developed by the Hi-Fi Engineering Team*
