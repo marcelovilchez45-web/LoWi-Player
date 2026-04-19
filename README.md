@@ -39,17 +39,30 @@ To use your computer as a wireless audio output:
 
 ---
 
-## 🛠️ Generación de APK (Android)
-El proyecto utiliza **Capacitor** para empaquetar la aplicación web en un binario nativo.
+## 🛠️ Generación de Binarios
+El proyecto utiliza **Capacitor** para empaquetar la aplicación web en plataformas nativas.
+
+### Android
 1. Instala dependencias: `npm install`.
 2. Compila la web: `npm run build`.
 3. Sincroniza con Android: `npx cap sync android`.
 4. Genera el APK: `cd android && ./gradlew assembleRelease`.
 
+### iOS
+1. Instala dependencias: `npm install`.
+2. Compila la web: `npm run build`.
+3. Sincroniza con iOS: `npx cap sync ios`.
+4. Abre en Xcode: `npx cap open ios`.
+5. Compila desde Xcode seleccionando tu dispositivo o simulador.
+
 ---
 
 ## 🤖 GitHub Actions CI/CD
-El repositorio está configurado con **GitHub Actions**. Cada vez que hagas un `push` a la rama `main`, GitHub compilará el APK automáticamente y lo dejará disponible como un **Artifact** en la pestaña **Actions**.
+El repositorio está configurado con **GitHub Actions**. Cada vez que hagas un `push` a la rama `main`, GitHub compilará automáticamente:
+*   **Android APK** (Unsigned).
+*   **iOS App Bundle** (No Signing).
+
+Ambos estarán disponibles como **Artifacts** en la pestaña **Actions**.
 
 ---
 *Developed by the Hi-Fi Engineering Team*

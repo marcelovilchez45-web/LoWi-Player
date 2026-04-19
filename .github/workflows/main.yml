@@ -44,3 +44,34 @@ jobs:
         with:
           name: hifi-player-apk
           path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+
+  build-ios:
+    name: Build iOS App
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Web Application
+        run: npm run build
+
+      - name: Capacitor Sync
+        run: npx cap sync ios
+
+      - name: Build iOS App (No Signing)
+        working-directory: ios/App
+        run: xcodebuild -scheme App -workspace App.xcworkspace -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload iOS App
+        uses: actions/upload-artifact@v4
+        with:
+          name: hifi-player-ios
+          path: ios/App/build/Release-iphoneos/App.app
