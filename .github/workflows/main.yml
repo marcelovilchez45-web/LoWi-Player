@@ -20,7 +20,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install --include=optional
+          npm rebuild @tailwindcss/oxide
 
       - name: Build Web Application
         run: npm run build
@@ -58,7 +60,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install --include=optional
+          npm rebuild @tailwindcss/oxide
 
       - name: Build Web Application
         run: npm run build
