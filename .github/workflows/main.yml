@@ -16,11 +16,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 20
 
       - name: Install dependencies
         run: |
+          rm -f package-lock.json
           npm install --include=optional
           npm rebuild @tailwindcss/oxide
 
@@ -56,11 +56,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 20
 
       - name: Install dependencies
         run: |
+          rm -f package-lock.json
           npm install --include=optional
           npm rebuild @tailwindcss/oxide
 
